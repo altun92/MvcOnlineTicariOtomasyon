@@ -1,0 +1,81 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1 class="mt-4">Cariler</h1>
+<br />
+<br />
+
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal1">Yeni Cari</button>
+    <br />
+    <br />
+
+    <thead>
+        <tr>
+            <th>Sıra No</th>
+            <th>Cari Adı</th>
+            <th>Cari Soyadı</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.CariAd</td>
+                <td>@item.CariSoyad</td>
+                <td>@item.CariSehir</td>
+                <td>@item.CariMail</td>
+                <td>
+                    <a href="/Cari/CariGetir/@item.CariId" class="btn btn-warning">Düzenle</a>
+                    <a href="/Cari/CariSil/@item.CariId" class="btn btn-danger">Sil</a>
+                    <a href="/Cari/MusteriSatis/@item.CariId" class="btn btn-success">Satış Geçmişi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<div class="modal fade" id="modal1" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cari Ekleme Ekranı</h3>
+            </div>
+            <form method="post" action="/Cari/CariEkle">
+                <div class="modal-body">
+                    <label>Cari Adı</label>
+                    <input type="text" class="form-control" name="CariAd" required="" />
+                    <br />
+
+                    <label>Cari Soyadı</label>
+                    <input type="text" class="form-control" name="CariSoyad" required="" />
+                    <br />
+
+                    <label>Şehir</label>
+                    <input type="text" class="form-control" name="CariSehir" required="" />
+                    <br />
+
+                    <label>Mail</label>
+                    <input type="text" class="form-control" name="CariMail" required="" />
+                    <br />
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Ekle</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

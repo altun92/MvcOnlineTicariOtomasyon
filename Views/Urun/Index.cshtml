@@ -1,0 +1,56 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1 class="mt-4">Ürünler</h1>
+<br />
+<br />
+
+<div>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <a href="/Urun/UrunEkle" class="btn btn-primary">Yeni Ürün</a>
+        <br />
+        <br />
+
+        <thead>
+            <tr>
+                <th>Sıra No</th>
+                <th>Ürün Adı</th>
+                <th>Marka</th>
+                <th>Stok Adedi</th>
+                <th>Alış Fiyatı</th>
+                <th>Satış Fiyatı</th>
+                <th>Durum</th>
+                <th>Ürün Görseli</th>
+                <th>Ürün Kategori</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.UrunAd</td>
+                    <td>@item.Marka</td>
+                    <td>@item.Stok</td>
+                    <td>@item.AlisFiyat</td>
+                    <td>@item.SatisFiyat</td>
+                    <td>@item.Durum</td>
+                    <td>@item.UrunGorsel</td>
+                    <td>@item.Kategori.KategoriAd</td>
+                    <td>
+                        <a href="/Urun/UrunGetir/@item.UrunId" class="btn btn-warning">Düzenle</a>
+                        <a href="/Urun/UrunSil/@item.UrunId" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+

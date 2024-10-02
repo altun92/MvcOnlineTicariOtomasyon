@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="mt-4">İstatistikler</h1>
+<br />
+<br />
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    : 
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Ürünler</div>
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.toplamUrunSayisi</h5>
+        <p class="card-text">Toplam Ürün Sayısı</p>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+</div>
+

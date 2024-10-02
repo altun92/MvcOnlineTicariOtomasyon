@@ -1,0 +1,61 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1 class="mt-4">Kategoriler</h1>
+<br />
+<br />
+
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal1">Yeni Kategori</button>
+    <br />
+    <br />
+
+    <thead>
+        <tr>
+            <th>Sıra No</th>
+            <th>Kategori Adı</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.KategoriAd</td>
+                <td>
+                    <a href="/Kategori/KategoriDuzenle/@item.KategoriId" class="btn btn-warning">Düzenle</a>
+                    <a href="/Kategori/KategoriSil/@item.KategoriId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<div class="modal fade" id="modal1" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Kategori Ekleme Ekranı</h3>
+            </div>
+            <form method="post" action="/Kategori/KategoriEkle">
+                <div class="modal-body">
+                    <label>Kategori Adı</label>
+                    <input type="text" class="form-control" name="KategoriAd" required="" />
+                    <br />
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Ekle</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
