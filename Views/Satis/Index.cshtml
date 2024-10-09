@@ -1,0 +1,71 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1 class="mt-4">Satışlar</h1>
+<br />
+<br />
+
+<div>
+    <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
+        <a href="/Satis/YeniSatis" class="btn btn-primary">Yeni Satış Yap</a>
+        <br />
+        <br />
+
+        <thead>
+            <tr>
+                <th>Sıra No</th>
+                <th>Ürün Görseli</th>
+                <th>Ürün</th>
+                <th>Cari</th>
+                <th>Personel</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td><img src="@item.Urun.UrunGorsel" width="100px" height="auto" /></td>
+                    <td>@item.Urun.UrunAd</td>
+                    <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                    <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                    <td>@item.Adet</td>
+                    <td>@item.Fiyat</td>
+                    <td>@item.ToplamTutar</td>
+                    <td>@item.Tarih.ToShortDateString()</td>
+                    <td>
+                        <a href="/Satis/SatisGetir/@item.SatisId" class="btn btn-warning">Düzenle</a>
+                        <a href="/Satis/SatisDetay/@item.SatisId" class="btn btn-danger">Detaylar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
