@@ -13,7 +13,8 @@
         <div class="card bg-primary text-white mb-4">
             <div class="card-body">
                 <div class="card-title">
-                    : 
+                    <p class="card-text">Toplam Ürün Sayısı</p>
+                    <p style="font-size:xx-large">@ViewBag.toplamUrunSayisi</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -22,17 +23,239 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Ürünler</div>
-    <div class="card-body">
-        <h5 class="card-title">@ViewBag.toplamUrunSayisi</h5>
-        <p class="card-text">Toplam Ürün Sayısı</p>
-        <div class="card-footer d-flex align-items-center justify-content-between">
-            <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
-            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Toplam Cari Sayısı</p>
+                    <p style="font-size:xx-large">@ViewBag.cariSayisi</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Cari/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
         </div>
     </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-info text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Toplam Kategori Sayısı</p>
+                    <p style="font-size:xx-large">@ViewBag.kategoriSayisi</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Kategori/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Toplam Personel Sayısı</p>
+                    <p style="font-size:xx-large">@ViewBag.personelSayisi</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Personel/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-secondary text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Toplam Stok Sayısı</p>
+                    <p style="font-size:xx-large">@ViewBag.toplamStokSayisi</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Marka Sayısı</p>
+                    <p style="font-size:xx-large">1</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Kritik Seviyedeki Ürünler</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-info text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">En Yüksek Fiyatlı Ürün</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Minimum Fiyatlı Ürün</p>
+                    <p style="font-size:xx-large">1</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-info text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">En Fazla Ürünü Olan Marka</p>
+                    <p style="font-size:xx-large">1</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-dark text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Buzdolabı Sayısı</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Laptop Sayısı</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">En Çok Satan Ürün</p>
+                    <p style="font-size:xx-large">1</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Urun/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Kasadaki Tutar</p>
+                    <p style="font-size:xx-large">1</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Satis/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-secondary text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Bugünkü Satış Sayısı</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Satis/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">
+                <div class="card-title">
+                    <p class="card-text">Bugünkü Kasa</p>
+                    <p style="font-size:xx-large">2</p>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/Satis/Index">Detayları Göster</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="mt-4">Faturaya Ait Kalemler</h1>
+<br />
+<br />
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">@ViewBag.faturano Faturasına Ait Detaylar</h4>
+    <p>Merhaba, aşağıdaki tabloda seçmiş olduğunuz faturaya ait kalemlerin listesi bulunmaktadır.</p>
+</div>
+<br />
+<br />
+
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ürün Adı</th>
+            <th>Miktar</th>
+            <th>Birim Fiyat</th>
+            <th>Tutar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FaturaKalemId</td>
+                <td>@item.Aciklama</td>
+                <td>@item.Miktar</td>
+                <td>@item.BirimFiyat</td>
+                <td>@item.Tutar</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Fatura/YeniKalem" class="btn btn-primary" style="margin-right:20px">Faturaya Kalem Ekle</a>
+<a href="/Fatura/Index" class="btn btn-primary">Faturalar Sayfasına Geri Dön</a>
+

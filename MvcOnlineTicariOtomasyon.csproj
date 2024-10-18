@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
+    <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -137,6 +138,18 @@
     <Compile Include="Controllers\İstatistikController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131134137_mig1.cs" />
+    <Compile Include="Migrations\202410131134137_mig1.Designer.cs">
+      <DependentUpon>202410131134137_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410131136379_mig2.cs" />
+    <Compile Include="Migrations\202410131136379_mig2.Designer.cs">
+      <DependentUpon>202410131136379_mig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410140555203_mig3.cs" />
+    <Compile Include="Migrations\202410140555203_mig3.Designer.cs">
+      <DependentUpon>202410140555203_mig3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
@@ -545,6 +558,11 @@
     <Content Include="Views\Satis\SatisGetir.cshtml" />
     <Content Include="Views\Satis\SatisDetay.cshtml" />
     <Content Include="Views\Urun\UrunYazdir.cshtml" />
+    <Content Include="Views\Fatura\Index.cshtml" />
+    <Content Include="Views\Fatura\FaturaEkle.cshtml" />
+    <Content Include="Views\Fatura\FaturaGetir.cshtml" />
+    <Content Include="Views\Fatura\FaturaDetay.cshtml" />
+    <Content Include="Views\Fatura\YeniKalem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -575,6 +593,17 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202410131134137_mig1.resx">
+      <DependentUpon>202410131134137_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410131136379_mig2.resx">
+      <DependentUpon>202410131136379_mig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410140555203_mig3.resx">
+      <DependentUpon>202410140555203_mig3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

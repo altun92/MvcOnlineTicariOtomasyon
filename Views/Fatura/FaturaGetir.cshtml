@@ -1,0 +1,38 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="mt-4">Fatura Güncelleme Sayfası</h1>
+<br />
+<br />
+
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post)) 
+{ 
+    @Html.HiddenFor(x=>x.FaturaId)
+    <label>Fatura Seri No</label>
+    @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control", @required = "required" })
+
+    <label>Fatura Sıra No</label>
+    @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control", @required = "required" })
+
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @required = "required" })
+
+    <label>Saat</label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", @required = "required" })
+
+    <label>Vergi Dairesi</label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", @required = "required" })
+
+    <label>Teslim Eden</label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", @required = "required" })
+
+    <label>Teslim Alan</label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", @required = "required" })
+    <br />
+    <button class="btn btn-primary" style="margin-right:20px">Faturayı Güncelle</button>
+    <a href="/Fatura/Index" class="btn btn-primary">Faturalar Sayfasına Geri Dön</a>
+}
+
