@@ -6,8 +6,6 @@
 
 <h1 class="mt-4">İstatistikler</h1>
 <br />
-<br />
-
 <div class="row">
     <div class="col-xl-3 col-md-6">
         <div class="card bg-primary text-white mb-4">
@@ -92,7 +90,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Marka Sayısı</p>
-                    <p style="font-size:xx-large">1</p>
+                    <p style="font-size:xx-large">@ViewBag.toplamMarka</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -107,7 +105,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Kritik Seviyedeki Ürünler</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.kritikSeviyeUrun</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -122,7 +120,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">En Yüksek Fiyatlı Ürün</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.enYuksekFiyatliUrun</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -140,7 +138,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Minimum Fiyatlı Ürün</p>
-                    <p style="font-size:xx-large">1</p>
+                    <p style="font-size:xx-large">@ViewBag.enDusukFiyatliUrun</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -155,7 +153,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">En Fazla Ürünü Olan Marka</p>
-                    <p style="font-size:xx-large">1</p>
+                    <p style="font-size:xx-large">@ViewBag.enFazlaMarka</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -170,7 +168,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Buzdolabı Sayısı</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.buzdolabiSayisi</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -185,7 +183,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Laptop Sayısı</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.laptopSayisi</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -203,7 +201,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">En Çok Satan Ürün</p>
-                    <p style="font-size:xx-large">1</p>
+                    <p style="font-size:xx-large">@ViewBag.encokSatanUrun</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -218,7 +216,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Kasadaki Tutar</p>
-                    <p style="font-size:xx-large">1</p>
+                    <p style="font-size:xx-large">@ViewBag.kasadakiTutar</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
@@ -229,18 +227,18 @@
     </div>
 
     <div class="col-xl-3 col-md-6">
-        <div class="card bg-secondary text-white mb-4">
+        <div><div class="card bg-secondary text-white mb-4">
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Bugünkü Satış Sayısı</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.bugunSatisSayisi</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" href="/Satis/Index">Detayları Göster</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
-        </div>
+        </div></div>
     </div>
 
     <div class="col-xl-3 col-md-6">
@@ -248,7 +246,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <p class="card-text">Bugünkü Kasa</p>
-                    <p style="font-size:xx-large">2</p>
+                    <p style="font-size:xx-large">@ViewBag.bugünKasaToplam</p>
                 </div>
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">

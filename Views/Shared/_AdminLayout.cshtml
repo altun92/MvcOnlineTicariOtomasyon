@@ -15,6 +15,15 @@
     <link href="/Content/AdminTheme/dist/css/styles.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/Content/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/Content/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -46,6 +55,15 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <div class="sb-sidenav-menu-heading">RAPORLAR</div>
+                        <a class="nav-link" href="/İstatistik/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                            İstatistikler
+                        </a>
+                        <a class="nav-link" href="/İstatistik/KolayTablolar">
+                            <div class="sb-nav-link-icon"><i class="fas fa-binoculars"></i></div>
+                            Hızlı Bakış
+                        </a>
                         <div class="sb-sidenav-menu-heading">İŞLEMLER</div>
                         <a class="nav-link" href="/Kategori/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -63,10 +81,19 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Cariler
                         </a>
-                        <a class="nav-link" href="/Personel/Index">
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapsepersonelliste" aria-expanded="false" aria-controls="pagesCollapsepersonelliste">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Personeller
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="pagesCollapsepersonelliste" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/Personel/Index">Liste</a>
+                                <a class="nav-link" href="/Personel/PersonelDetay">Detay Sayfası</a>
+                            </nav>
+                        </div>
+
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>
                             Admin
@@ -111,15 +138,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-eye"></i></div>
                             Hareketler
                         </a>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-binoculars"></i></div>
-                            İstatistikler
+                        <a class="nav-link" href="/UrunDetay/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
+                            Ürün Detay
                         </a>
                     </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Giriş Yapan Kullanıcı:</div>
-                    #
                 </div>
             </nav>
         </div>
@@ -152,6 +175,15 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="/Content/AdminTheme/dist/assets/demo/datatables-demo.js"></script>
+    <!-- jQuery -->
+    <script src="/Content/AdminLTE-3.0.4//plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/Content/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/Content/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Content/AdminLTE-3.0.4/dist/js/demo.js"></script>
+
 </body>
 </html>
 

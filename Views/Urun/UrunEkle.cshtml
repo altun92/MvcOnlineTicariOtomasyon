@@ -8,41 +8,40 @@
 <br />
 <br />
 
-<form method="post" action="/Urun/UrunEkle">
-    <label>Ürün Adı</label>
-    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @required = "required" })
-    <br />
+<div class="container">
+    <form method="post" action="/Urun/UrunEkle">
+        <label>Ürün Adı</label>
+        @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Marka</label>
-    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Marka</label>
+        @Html.TextBoxFor(x => x.Marka, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Stok Adedi</label>
-    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Stok Adedi</label>
+        @Html.TextBoxFor(x => x.Stok, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Alış Fİyatı</label>
-    @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Alış Fİyatı</label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Satış Fiyatı</label>
-    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Satış Fiyatı</label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Durumu</label>
-    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Durumu</label>
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Ürün Görseli</label>
-    @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Ürün Görseli</label>
+        @Html.TextBoxFor(x => x.UrunGorsel, new { @class = "form-control", @required = "required" })
+        <br />
 
-    @Html.Label("Kategori Adı")
-    @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @required = "required" })
-    <br />
-    <button class="btn btn-primary" style="margin-right:20px">Kaydet</button>
-    <a href="/Urun/Index" class="btn btn-primary">Ürünler Sayfasına Geri Dön</a>
-</form>
-
-
-
+        @Html.Label("Kategori Adı")
+        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", @required = "required" })
+        <br />
+        <button class="btn btn-primary" style="margin-right:20px">Kaydet</button>
+        <a href="/Urun/Index" class="btn btn-primary">Ürünler Sayfasına Geri Dön</a>
+    </form>
+</div>

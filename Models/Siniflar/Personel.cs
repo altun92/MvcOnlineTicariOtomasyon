@@ -23,5 +23,15 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public ICollection<SatisHareket> SatisHarekets { get; set; }
         public int DepartmanId { get; set; }
         public virtual Departman Departman { get; set; }
+
+        [Column(TypeName = "varchar")]
+        [StringLength(50)]
+        public string PersonelUnvan {  get; set; }
+        [Column(TypeName = "varchar")]
+        [StringLength(11)]
+        public string PersonelTel { get; set; }
+        [Column(TypeName = "varchar")]
+        [StringLength(250)]
+        public string PersonelAdres { get; set; }
     }
 }

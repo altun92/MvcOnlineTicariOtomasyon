@@ -6,23 +6,32 @@
 
 <h1 class="mt-4">Personel Güncelleme Sayfası</h1>
 <br />
-<br />
+<div class="container">
+    @using (@Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.PersonelId)
 
-@using (@Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
-{
-@Html.HiddenFor(x => x.PersonelId)
-
-@Html.Label("Personel Adı")
-@Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @required = "required" })
-<br />
-@Html.Label("Personel Soyadı")
-@Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @required = "required" })
-<br />
-@Html.Label("Personel Görseli")
-@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", @required = "required" })
-<br />
-@Html.Label("Departman Adı")
-@Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.depliste, new { @class = "form-control"})
-<br />
-<button class="btn btn-primary">Güncelle</button>
-}
+        @Html.Label("Personel Adı")
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Personel Soyadı")
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Personel Görseli")
+        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Personel Ünvanı")
+        @Html.TextBoxFor(x => x.PersonelUnvan, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Personel Telefonu")
+        @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Personel Adresi")
+        @Html.TextBoxFor(x => x.PersonelAdres, new { @class = "form-control", @required = "required" })
+        <br />
+        @Html.Label("Departman Adı")
+        @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.depliste, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+    }
+</div>

@@ -68,9 +68,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             degerler.PersonelAd = personel.PersonelAd;
             degerler.PersonelSoyad = personel.PersonelSoyad;
             degerler.PersonelGorsel = personel.PersonelGorsel;
+            degerler.PersonelUnvan = personel.PersonelUnvan;
+            degerler.PersonelTel = personel.PersonelTel;
+            degerler.PersonelAdres = personel.PersonelAdres;
             degerler.DepartmanId = personel.DepartmanId;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult PersonelDetay()
+        {
+            var personeldetay = db.Personels.ToList();
+            return View(personeldetay);
         }
     }
 }

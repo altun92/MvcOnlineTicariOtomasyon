@@ -7,36 +7,32 @@
 <h1 class="mt-4">Satış Sayfası</h1>
 <br />
 <br />
+<div class="container">
+    <form method="post" action="/Satis/YeniSatis">
+        @Html.Label("Ürün Seçiniz")
+        @Html.DropDownListFor(x => x.UrunId, (List<SelectListItem>)ViewBag.urunlist, new { @class = "form-control", @required = "required" })
+        <br />
 
-<form method="post" action="/Satis/YeniSatis">
-    @Html.Label("Ürün Seçiniz")
-    @Html.DropDownListFor(x => x.UrunId, (List<SelectListItem>)ViewBag.urunlist, new { @class = "form-control", @required = "required" })
-    <br />
+        @Html.Label("Cari Seçiniz")
+        @Html.DropDownListFor(x => x.CariId, (List<SelectListItem>)ViewBag.carilist, new { @class = "form-control", @required = "required" })
+        <br />
 
-    @Html.Label("Cari Seçiniz")
-    @Html.DropDownListFor(x => x.CariId, (List<SelectListItem>)ViewBag.carilist, new { @class = "form-control", @required = "required" })
-    <br />
+        @Html.Label("Personel Seçiniz")
+        @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.personellist, new { @class = "form-control", @required = "required" })
+        <br />
 
-    @Html.Label("Personel Seçiniz")
-    @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.personellist, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Ürün Adedi</label>
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Ürün Adedi</label>
-    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", @required = "required" })
-    <br />
+        <label>Ürün Fiyatı</label>
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", @required = "required" })
+        <br />
 
-    <label>Ürün Fiyatı</label>
-    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", @required = "required" })
-    <br />
-
-    <label>Toplam Tutar</label>
-    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", @required = "required" })
-    <br />
-    <button class="btn btn-primary" style="margin-right:20px">Kaydet</button>
-    <a href="/Satis/Index" class="btn btn-primary">Satışlar Sayfasına Geri Dön</a>
-</form>
-
-
-
-
-
+        <label>Toplam Tutar</label>
+        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", @required = "required" })
+        <br />
+        <button class="btn btn-primary" style="margin-right:20px">Kaydet</button>
+        <a href="/Satis/Index" class="btn btn-primary">Satışlar Sayfasına Geri Dön</a>
+    </form>
+</div>

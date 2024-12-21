@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MvcOnlineTicariOtomasyon.Models.Siniflar.SinifGroup2>
+
+@{
+    int sayac2 = 0;
+}
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Departmana Personel Sayıları</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Departman Adı</th>
+                        <th>Progress Bar</th>
+                        <th style="width: 40px">Oran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        sayac2++;
+                        <tr>
+                            <td>@sayac2</td>
+                            <td>@item.Departman</td>
+                            <td>
+                                @if (1 <= item.Sayi && item.Sayi < 3)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-dark" style="width: 25%"></div>
+                                    </div>
+                                }
+                                else if (3 <= item.Sayi && item.Sayi < 6)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                    </div>
+                                }
+                                else if (6 <= item.Sayi && item.Sayi < 8)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-primary" style="width: 75%"></div>
+                                    </div>
+                                }
+                                else if (8 <= item.Sayi && item.Sayi < 10)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar bg-success" style="width: 95%"></div>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                @if (1 <= item.Sayi && item.Sayi < 3)
+                                {
+                                    <span class="badge bg-dark">@item.Sayi</span>
+                                }
+                                else if (3 <= item.Sayi && item.Sayi < 6)
+                                {
+                                    <span class="badge bg-warning">@item.Sayi</span>
+                                }
+                                else if (6 <= item.Sayi && item.Sayi < 8)
+                                {
+                                    <span class="badge bg-primary">@item.Sayi</span>
+                                }
+                                else if (8 <= item.Sayi && item.Sayi < 10)
+                                {
+                                    <span class="badge bg-success">@item.Sayi</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
