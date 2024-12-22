@@ -1,0 +1,150 @@
+﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.ToDoList>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="mt-4"></h1>
+<br />
+
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.toplamYapilacak</h3>
+
+                <p>Toplam İş Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">Detayları Gör <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@ViewBag.tamamlananYapilacak</h3>
+
+                <p>Tamamlanan İş Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">Detayları Gör <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>@ViewBag.tamamlanmayanYapilacak</h3>
+
+                <p>Bekleyen İş Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">Detayları Gör <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>@ViewBag.kullaniciSayisi</h3>
+
+                <p>Kullanıcı Sayısı</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">Detayları Gör <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="ion ion-clipboard mr-1"></i>
+            Yapılacaklar Listesi
+        </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <ul class="todo-list" data-widget="todo-list">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <!-- drag handle -->
+                    <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                    <!-- checkbox -->
+                    <div class="icheck-primary d-inline ml-2">
+                        @if (item.Durum == false)
+                        {
+                            <a href="/ToDoList/StatusToTrue/@item.ToDoListId" class="btn btn-success">Yapıldı Olarak İşaretle</a>
+                        }
+                        else if (item.Durum == true)
+                        {
+                            <a href="/ToDoList/StatusToFalse/@item.ToDoListId" class="btn btn-danger">Yapılmadı Olarak İşaretle</a>
+                        }
+                    </div>
+                    <!-- todo text -->
+                    <span class="text">@item.Başlik</span>
+                    <!-- Emphasis label -->
+                    @if (item.Durum == false)
+                    {
+                        <small class="badge badge-danger"><i class="far fa-clock"></i> Yapılmadı</small>
+                    }
+                    else if (item.Durum == true)
+                    {
+                        <small class="badge badge-success"><i class="far fa-clock"></i> Yapıldı</small>
+                    }
+
+                    <!-- General tools such as edit or delete-->
+                    <div class="tools">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-o"></i>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+        <button data-toggle="modal" data-target="#modal1" class="btn btn-info float-right"><i class="fas fa-plus"></i>Yeni Öğe Ekle</button>
+    </div>
+</div>
+<!-- /.card -->
+
+<div class="modal fade" id="modal1" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">İş Ekleme Ekranı</h3>
+            </div>
+            <form method="post" action="/ToDoList/CreateToDoList">
+                <div class="modal-body">
+                    <label>Yapılacak İşin İçeriği</label>
+                    <input type="text" class="form-control" name="Başlik" required="" />
+                    <br />
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Ekle</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

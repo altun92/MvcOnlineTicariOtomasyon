@@ -16,9 +16,9 @@
         <thead>
             <tr>
                 <th>Sıra No</th>
+                <th>Görsel</th>
                 <th>Personel Adı</th>
                 <th>Personel Soyadı</th>
-                <th>Görsel</th>
                 <th>Ünvanı</th>
                 <th>Telefonu</th>
                 <th>Adresi</th>
@@ -32,9 +32,9 @@
                 count++;
                 <tr>
                     <td>@count</td>
+                    <td><img src="@item.PersonelGorsel" style="width:100px; height:auto" /></td>
                     <td>@item.PersonelAd</td>
                     <td>@item.PersonelSoyad</td>
-                    <td style="width:50px">@item.PersonelGorsel.Substring(0,25)</td>
                     <td>@item.PersonelUnvan</td>
                     <td>@item.PersonelTel</td>
                     <td>@item.PersonelAdres</td>

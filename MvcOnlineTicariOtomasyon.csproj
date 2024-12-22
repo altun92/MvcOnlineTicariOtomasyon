@@ -128,12 +128,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CariController.cs" />
+    <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
+    <Compile Include="Controllers\ToDoListController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\UrunDetayController.cs" />
     <Compile Include="Controllers\İstatistikController.cs" />
@@ -156,6 +159,14 @@
     <Compile Include="Migrations\202412212058403_mig4.Designer.cs">
       <DependentUpon>202412212058403_mig4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412220938371_mig5.cs" />
+    <Compile Include="Migrations\202412220938371_mig5.Designer.cs">
+      <DependentUpon>202412220938371_mig5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202412221134394_mig6.cs" />
+    <Compile Include="Migrations\202412221134394_mig6.Designer.cs">
+      <DependentUpon>202412221134394_mig6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cari.cs" />
@@ -170,6 +181,7 @@
     <Compile Include="Models\Siniflar\SatisHareket.cs" />
     <Compile Include="Models\Siniflar\SinifGroup.cs" />
     <Compile Include="Models\Siniflar\SinifGroup2.cs" />
+    <Compile Include="Models\Siniflar\ToDoList.cs" />
     <Compile Include="Models\Siniflar\Urun.cs" />
     <Compile Include="Models\Siniflar\UrunDetayViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2219,6 +2231,33 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\weblogin\css\font-awesome.css" />
+    <Content Include="Content\weblogin\css\popup-box.css" />
+    <Content Include="Content\weblogin\css\style.css" />
+    <Content Include="Content\weblogin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\weblogin\images\bg.jpg" />
+    <Content Include="Content\weblogin\index.html" />
+    <Content Include="Content\weblogin\js\jquery-2.1.4.min.js" />
+    <Content Include="Content\weblogin\js\jquery.magnific-popup.js" />
+    <Content Include="Content\weblogin\w3layouts-License.txt" />
+    <Content Include="Content\webpanel\.gitignore" />
+    <Content Include="Content\webpanel\css\simple-sidebar.css" />
+    <Content Include="Content\webpanel\gulpfile.js" />
+    <Content Include="Content\webpanel\index.html" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.js" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.slim.js" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.slim.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -2530,6 +2569,28 @@
     <Content Include="Content\AdminLTE-3.0.4\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="Content\AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="Content\AdminLTE-3.0.4\README.md" />
+    <Content Include="Content\weblogin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\weblogin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\weblogin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\weblogin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\weblogin\fonts\FontAwesome.otf" />
+    <Content Include="Content\webpanel\.travis.yml" />
+    <Content Include="Content\webpanel\LICENSE" />
+    <Content Include="Content\webpanel\package-lock.json" />
+    <Content Include="Content\webpanel\package.json" />
+    <Content Include="Content\webpanel\README.md" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\webpanel\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.min.map" />
+    <Content Include="Content\webpanel\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -2665,6 +2726,11 @@
     <Content Include="Views\İstatistik\Partial2.cshtml" />
     <Content Include="Views\İstatistik\Partial3.cshtml" />
     <Content Include="Views\Personel\PersonelDetay.cshtml" />
+    <Content Include="Views\ToDoList\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Shared\_CariLayout.cshtml" />
+    <Content Include="Views\CariPanel\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2708,6 +2774,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412212058403_mig4.resx">
       <DependentUpon>202412212058403_mig4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412220938371_mig5.resx">
+      <DependentUpon>202412220938371_mig5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412221134394_mig6.resx">
+      <DependentUpon>202412221134394_mig6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
