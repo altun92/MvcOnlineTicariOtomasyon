@@ -17,7 +17,6 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Satış Id</th>
             <th>Ürün</th>
             <th>Cari</th>
             <th>Fiyat</th>
@@ -31,13 +30,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.SatisId</td>
                 <td>@item.Urun.UrunAd</td>
                 <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
-                <td>@item.Fiyat</td>
+                <td>@item.Fiyat ₺</td>
                 <td>@item.Adet</td>
-                <td>@item.ToplamTutar</td>
-                <td>@item.Tarih</td>
+                <td>@item.ToplamTutar ₺</td>
+                <td>@item.Tarih.ToShortDateString()</td>
                 <td><a href="#" class="btn btn-dark">Yazdır</a></td>
             </tr>
         }

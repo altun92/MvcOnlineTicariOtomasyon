@@ -1,4 +1,5 @@
 ﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Urun>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,7 +8,15 @@
 
 <h1 class="mt-4">Ürünler</h1>
 <br />
-<div>
+
+<div class="container-fluid">
+    @using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+    {
+        <p>
+            Ürün Adı: @Html.TextBox("p")
+            <input type="submit" value="Ara" />
+        </p>
+    }
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <a href="/Urun/UrunEkle" class="btn btn-primary" style="margin-right:20px">Yeni Ürün</a>
         <a href="/Urun/UrunYazdir" class="btn btn-primary">Ürün Listesini Yazdır</a>
@@ -38,8 +47,8 @@
                     <td>@item.UrunAd</td>
                     <td>@item.Marka</td>
                     <td>@item.Stok</td>
-                    <td>@item.AlisFiyat</td>
-                    <td>@item.SatisFiyat</td>
+                    <td>@item.AlisFiyat TL</td>
+                    <td>@item.SatisFiyat TL</td>
                     <td>@item.Durum</td>
                     <td>@item.Kategori.KategoriAd</td>
                     <td>
@@ -49,6 +58,5 @@
                 </tr>
             }
         </tbody>
-
     </table>
 </div>

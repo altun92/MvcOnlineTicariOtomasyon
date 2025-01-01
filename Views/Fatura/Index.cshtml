@@ -9,44 +9,79 @@
 <div>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <a href="/Fatura/FaturaEkle" class="btn btn-primary" style="margin-right:20px">Yeni Fatura Girişi</a>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modal1" style="margin-right:20px">Popup Liste</button>
         <br />
         <br />
-
         <thead>
             <tr>
-                <th>Fatura Id</th>
-                <th>Fatura Seri No</th>
-                <th>Fatura Sıra No</th>
+                <th>Fatura Seri-Sıra No</th>
                 <th>Tarih</th>
-                <th>Vergi Dairesi</th>
-                <th>Saat</th>
-                <th>Toplam Tutar</th>
                 <th>Teslim Eden</th>
                 <th>Teslim Alan</th>
                 <th>İşlemler</th>
             </tr>
         </thead>
-        <tbody> 
+        <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.FaturaId</td>
-                    <td>@item.FaturaSeriNo</td>
-                    <td>@item.FaturaSıraNo</td>
-                    <td>@item.Tarih.ToShortDateString()</td>
-                    <td>@item.VergiDairesi</td>
-                    <td>@item.Saat</td>
-                    <td>@item.ToplamTutar</td>
+                    <td>@item.FaturaSeriNo @item.FaturaSıraNo</td>
+                    <td>@item.Tarih.ToShortDateString() @item.Saat</td>
                     <td>@item.TeslimEden</td>
                     <td>@item.TeslimAlan</td>
                     <td>
                         <a href="/Fatura/FaturaGetir/@item.FaturaId" class="btn btn-warning">Düzenle</a>
-                        <a href="/Fatura/FaturaDetay/@item.FaturaId" class="btn btn-success">Fatura Kalemleri</a>
+                        <a href="/Fatura/FaturaDetay/@item.FaturaId" class="btn btn-primary">Detaylar</a>
+                        <a href="/Fatura/FaturaDetay/@item.FaturaId" class="btn btn-dark">Yeni Kalem</a>
                     </td>
                 </tr>
             }
         </tbody>
-
     </table>
+
+    
 </div>
 
+<div class="modal fade" id="modal1" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Fatura Detayları</h3>
+            </div>
+            <form method="post" action="/Fatura/FaturaPopup">
+                <div class="modal-body">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Fatura Seri-Sıra No</th>
+                                <th>Tarih</th>
+                                <th>Vergi Dairesi</th>
+                                <th>Toplam Tutar</th>
+                                <th>Teslim Eden</th>
+                                <th>Teslim Alan</th>
+                             
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FaturaSeriNo @item.FaturaSıraNo</td>
+                                    <td>@item.Tarih.ToShortDateString() @item.Saat</td>
+                                    <td>@item.VergiDairesi</td>
+                                    <td>@item.ToplamTutar ₺</td>
+                                    <td>@item.TeslimEden</td>
+                                    <td>@item.TeslimAlan</td>
+                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

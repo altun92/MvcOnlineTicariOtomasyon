@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models.Siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class İstatistikController : Controller
     {
         Context db = new Context();
@@ -42,7 +43,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             ViewBag.bugunSatisSayisi = db.SatisHarekets.Count(x=>x.Tarih==DateTime.Today).ToString();
 
-            //ViewBag.bugünKasaToplam = db.SatisHarekets.Where(x => x.Tarih == DateTime.Today).Sum(y => y.ToplamTutar).ToString();
+            ViewBag.bugünKasaToplam = db.SatisHarekets.Where(x => x.Tarih == DateTime.Today).Sum(y => (decimal?)y.ToplamTutar).ToString();
             return View();
         }
 

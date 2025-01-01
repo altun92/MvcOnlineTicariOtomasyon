@@ -11,10 +11,16 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     public class UrunController : Controller
     {
         Context db = new Context();
-        public ActionResult Index()
+
+        //Ürün listeleme ve arama bölümü
+        public ActionResult Index(string p)
         {
-            var urunliste = db.Uruns.Where(x => x.Durum == true).ToList();
-            return View(urunliste);
+            var urunler = from x in db.Uruns select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                urunler = urunler.Where(y => y.UrunAd.Contains(p));
+            }
+            return View(urunler.ToList());
         }
 
         [HttpGet]

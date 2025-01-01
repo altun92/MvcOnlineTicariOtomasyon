@@ -82,5 +82,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult FaturaPopup(int id)
+        {
+            var value = context.Faturalars.Find(id);
+            return View(value);
+        }
     }
 }

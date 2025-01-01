@@ -1,4 +1,6 @@
-﻿@model List<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
+﻿@model IPagedList<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
+    @using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -22,6 +24,7 @@
     <tbody>
         @foreach (var item in Model)
         {
+
             count++;
             <tr>
                 <td>@count</td>
@@ -35,6 +38,7 @@
     </tbody>
 
 </table>
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index", new {sayfa}))
 
 <div class="modal fade" id="modal1" data-backdrop="static">
     <div class="modal-dialog modal-lg">
