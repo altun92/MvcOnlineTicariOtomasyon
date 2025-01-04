@@ -7,7 +7,6 @@ using MvcOnlineTicariOtomasyon.Models.Siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    [Authorize]
     public class İstatistikController : Controller
     {
         Context db = new Context();

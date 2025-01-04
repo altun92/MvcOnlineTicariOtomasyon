@@ -1,11 +1,12 @@
 ﻿@model IPagedList<MvcOnlineTicariOtomasyon.Models.Siniflar.Kategori>
-    @using PagedList;
+@using PagedList;
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    int count = 0;
 }
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <h1 class="mt-4">Kategoriler</h1>
 <br />
@@ -16,7 +17,7 @@
 
     <thead>
         <tr>
-            <th>Sıra No</th>
+            <th>Kategori Id</th>
             <th>Kategori Adı</th>
             <th>İşlemler</th>
         </tr>
@@ -25,9 +26,8 @@
         @foreach (var item in Model)
         {
 
-            count++;
             <tr>
-                <td>@count</td>
+                <td>@item.KategoriId</td>
                 <td>@item.KategoriAd</td>
                 <td>
                     <a href="/Kategori/KategoriDuzenle/@item.KategoriId" class="btn btn-warning">Düzenle</a>
@@ -38,7 +38,12 @@
     </tbody>
 
 </table>
-@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index", new {sayfa}))
+<!--Sayfalama ve sayfalamada rakamların düzgün görünümde gelme işlemi..-->
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link" }
+})
 
 <div class="modal fade" id="modal1" data-backdrop="static">
     <div class="modal-dialog modal-lg">
@@ -54,7 +59,12 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-primary">Ekle</button>
+                    <button class="btn btn-primary" id="Btn1">Ekle</button>
+                    <script>
+                        $('#Btn1').click(function () {
+                            swal("Tebrikler", "Kaydetme İşleminiz Tamamlandı..", "success");
+                        });
+                    </script>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
                 </div>
             </form>

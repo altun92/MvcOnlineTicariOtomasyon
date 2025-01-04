@@ -7,7 +7,7 @@
 <h1 class="mt-4">Personel Güncelleme Sayfası</h1>
 <br />
 <div class="container">
-    @using (@Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+    @using (@Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(x => x.PersonelId)
 
@@ -16,9 +16,6 @@
         <br />
         @Html.Label("Personel Soyadı")
         @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @required = "required" })
-        <br />
-        @Html.Label("Personel Görseli")
-        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", @required = "required" })
         <br />
         @Html.Label("Personel Ünvanı")
         @Html.TextBoxFor(x => x.PersonelUnvan, new { @class = "form-control", @required = "required" })
@@ -31,6 +28,12 @@
         <br />
         @Html.Label("Departman Adı")
         @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.depliste, new { @class = "form-control" })
+        <br />
+        @Html.Label("Personel Görseli")
+        <br />
+        @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control", @required = "required" })*@
+        <input type="file" name="PersonelGorsel" />
+        <br />
         <br />
         <button class="btn btn-primary">Güncelle</button>
     }

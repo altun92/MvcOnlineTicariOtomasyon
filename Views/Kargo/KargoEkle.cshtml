@@ -1,0 +1,29 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.KargoDetay
+@{
+    ViewBag.Title = "KargoEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kargo Ekleme Sayfası</h2>
+<br />
+<br />
+
+<div class="container">
+    <form method="post" action="/Kargo/KargoEkle">
+            <label>Takip Kodu</label>
+            <input type="text" class="form-control" name="TakipKodu" value="@ViewBag.takipkod" required="" readonly />
+            <br />
+            <label>Personel</label>
+            <input type="text" class="form-control" name="Personel" required="" />
+            <br />
+            <label>Alıcı</label>
+            <input type="text" class="form-control" name="Alici" required="" />
+            <br />
+            <label>Açıklama</label>
+            <input type="text" class="form-control" name="Aciklama" required="" />
+            <br />
+        <button class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+

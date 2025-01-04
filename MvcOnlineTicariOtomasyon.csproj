@@ -59,6 +59,9 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\..\Downloads\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -133,14 +136,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\QrController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\ToDoListController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
@@ -173,6 +179,18 @@
     <Compile Include="Migrations\202412221134394_mig6.Designer.cs">
       <DependentUpon>202412221134394_mig6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202501041210007_mig7.cs" />
+    <Compile Include="Migrations\202501041210007_mig7.Designer.cs">
+      <DependentUpon>202501041210007_mig7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501041959374_takipkodulength.cs" />
+    <Compile Include="Migrations\202501041959374_takipkodulength.Designer.cs">
+      <DependentUpon>202501041959374_takipkodulength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501042003414_alllength.cs" />
+    <Compile Include="Migrations\202501042003414_alllength.Designer.cs">
+      <DependentUpon>202501042003414_alllength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
     <Compile Include="Models\Siniflar\Cari.cs" />
@@ -182,6 +200,8 @@
     <Compile Include="Models\Siniflar\FaturaKalem.cs" />
     <Compile Include="Models\Siniflar\Faturalar.cs" />
     <Compile Include="Models\Siniflar\Gider.cs" />
+    <Compile Include="Models\Siniflar\KargoDetay.cs" />
+    <Compile Include="Models\Siniflar\KargoTakip.cs" />
     <Compile Include="Models\Siniflar\Kategori.cs" />
     <Compile Include="Models\Siniflar\Personel.cs" />
     <Compile Include="Models\Siniflar\SatisHareket.cs" />
@@ -2739,6 +2759,12 @@
     <Content Include="Views\Shared\_CariLayout.cshtml" />
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
+    <Content Include="Views\Alert\Index.cshtml" />
+    <Content Include="Views\Urun\SatisYap.cshtml" />
+    <Content Include="Views\Kargo\Index.cshtml" />
+    <Content Include="Views\Kargo\KargoEkle.cshtml" />
+    <Content Include="Views\Kargo\KargoDetay.cshtml" />
+    <Content Include="Views\Qr\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2788,6 +2814,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202412221134394_mig6.resx">
       <DependentUpon>202412221134394_mig6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501041210007_mig7.resx">
+      <DependentUpon>202501041210007_mig7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501041959374_takipkodulength.resx">
+      <DependentUpon>202501041959374_takipkodulength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501042003414_alllength.resx">
+      <DependentUpon>202501042003414_alllength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

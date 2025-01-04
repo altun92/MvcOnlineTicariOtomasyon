@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+
+<br />
+<br />
+
+<button class="btn btn-primary" id="Btn1">Button1</button>
+<button class="btn btn-primary" id="Btn2">Button2</button>
+<button class="btn btn-primary" id="Btn3">Button3</button>
+<button class="btn btn-primary" id="Btn4">Button4</button>
+
+
+<script>
+    $('#Btn1').click(function (){
+        swal("Tebrikler", "Kaydetme İşleminiz Tamamlandı..", "success");
+    });
+</script>
+
+<script>
+    $('#Btn2').click(function () {
+        swal("Merhaba Dünya!");
+
+    });
+</script>
+
+<script>
+    $('#Btn3').click(function () {
+        swal("Uyarı", "Kaydetme İşlemi Olmadı..", "warning");
+
+    });
+</script>
+
+<script>
+    $('#Btn4').click(function () {
+        swal("Bilgi", "Kaydetme İşlemi Eksik Tamamlandı..", "info");
+
+    });
+</script>

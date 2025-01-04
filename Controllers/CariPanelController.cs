@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
     public class CariPanelController : Controller
     {
         Context db = new Context();
-        [Authorize]
         // GET: CariPanel
         public ActionResult Index()
         {
@@ -39,6 +39,13 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var id = db.Caris.Where(x => x.CariMail == mail.ToString()).Select(y => y.CariId).FirstOrDefault();
             var degerler = db.SatisHarekets.Where(x => x.CariId == id).ToList();
             return View(degerler);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

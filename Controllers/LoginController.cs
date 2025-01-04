@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
-    
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         Context db = new Context();
@@ -69,12 +69,19 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.KullaniciAd, false);
                 Session["KullaniciAd"]=bilgiler.KullaniciAd.ToString();
-                return RedirectToAction("Index", "Kategori");
+                return RedirectToAction("Index", "İstatistik");
             }
             else
             {
                 return RedirectToAction("Index", "Login");
             }
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

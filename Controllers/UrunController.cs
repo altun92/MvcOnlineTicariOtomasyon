@@ -20,7 +20,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             {
                 urunler = urunler.Where(y => y.UrunAd.Contains(p));
             }
-            return View(urunler.ToList());
+            return View(urunler.Where(x=>x.Durum==true).ToList());
         }
 
         [HttpGet]
@@ -86,6 +86,40 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         {
             var urunliste = db.Uruns.ToList();
             return View(urunliste);
+        }
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+            List<SelectListItem> cariler = (from x in db.Caris.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CariAd + " " + x.CariSoyad,
+                                                Value = x.CariId.ToString()
+                                            }).ToList();
+            ViewBag.carilist = cariler;
+
+            List<SelectListItem> personeller = (from x in db.Personels.ToList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                                    Value = x.PersonelId.ToString()
+                                                }).ToList();
+            ViewBag.personellist = personeller;
+
+            var urundegerleri = db.Uruns.Find(id);
+            ViewBag.urunid = urundegerleri.UrunId;
+            ViewBag.urunad = urundegerleri.UrunAd;
+            ViewBag.urunfiyat = urundegerleri.SatisFiyat;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket satisHareket)
+        {
+            satisHareket.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.SatisHarekets.Add(satisHareket);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Satis");
         }
     }
 }
