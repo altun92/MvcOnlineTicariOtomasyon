@@ -3,32 +3,624 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CariLayout.cshtml";
 }
-
-<h2>Mvc Online Ticari Otomasyon Cari Bilgileri</h2>
 <br />
+<!DOCTYPE html>
 
-@using (Html.BeginForm("UpdateCari", "CariPanel", FormMethod.Post))
-{
-    <table class="table table-bordered">
-        <tr>
-            <td>Mail Adresi: @HttpContext.Current.User.Identity.Name</td>
-        </tr>
+<html>
 
-        <tr>
-            <td>@Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })</td>
-        </tr>
+<head>
 
-        <tr>
-            <td>@Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })</td>
-        </tr>
+    <meta charset="utf-8">
 
-        <tr>
-            <td>@Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })</td>
-        </tr>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <tr>
-            <td>@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })</td>
-        </tr>
-    </table>
-    <button class="btn btn-warning">Bilgilerimi Güncelle</button>
-}
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="/Content/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="/Content/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Profil Bilgileri</h1>
+
+                    </div>
+
+
+
+                </div>
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- Main content -->
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+
+                        <div class="card card-primary card-outline">
+
+                            <div class="card-body box-profile">
+
+                                <div class="text-center">
+
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="data:image/jpeg;base64,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"
+                                         alt="User profile picture">
+
+                                </div>
+
+                                <h3 class="profile-username text-center">@ViewBag.adsoyad - @ViewBag.mailid</h3>
+
+                                <p class="text-muted text-center">@ViewBag.m</p>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Satış</b> <a class="float-right">
+                                            @(ViewBag.toplamsatis ?? "Satış Yok")
+                                        </a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Tutar</b> <a class="float-right">
+                                            @(ViewBag.toplamtutar ?? "0")
+                                        </a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Ürün</b> <a class="float-right">
+                                            @(ViewBag.toplamurun ?? "Ürün Yok")
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                                <a href="/CariPanel/KargoTakip" class="btn btn-primary btn-block"><b>Kargo Takibi</b></a>
+
+                            </div>
+
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+
+                        <div class="card">
+
+                            <div class="card-header p-2">
+
+                                <ul class="nav nav-pills">
+
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                                </ul>
+
+                            </div><!-- /.card-header -->
+
+                            <div class="card-body">
+
+                                <div class="tab-content">
+
+                                    <div class="active tab-pane" id="activity">
+
+                                        <!-- Post -->
+
+                                        <div class="post">
+
+                                            <div class="user-block">
+
+                                                <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="user image">
+
+                                                <span class="username">
+
+                                                    <a href="#">Jonathan Burke Jr.</a>
+
+                                                    <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+                                                </span>
+
+                                                <span class="description">Shared publicly - 7:30 PM today</span>
+
+                                            </div>
+
+                                            <!-- /.user-block -->
+
+                                            <p>
+
+                                                Lorem ipsum represents a long-held tradition for designers,
+
+                                                typographers and the like. Some people hate it and argue for
+
+                                                its demise, but others ignore the hate as they create awesome
+
+                                                tools to help create filler text for everyone from bacon lovers
+
+                                                to Charlie Sheen fans.
+
+                                            </p>
+
+                                            <p>
+
+                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+
+                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+
+                                                <span class="float-right">
+
+                                                    <a href="#" class="link-black text-sm">
+
+                                                        <i class="far fa-comments mr-1"></i> Comments (5)
+
+                                                    </a>
+
+                                                </span>
+
+                                            </p>
+
+                                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+
+                                        </div>
+
+                                        <!-- /.post -->
+                                        <!-- Post -->
+
+                                        <div class="post clearfix">
+
+                                            <div class="user-block">
+
+                                                <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/user7-128x128.jpg" alt="User Image">
+
+                                                <span class="username">
+
+                                                    <a href="#">Sarah Ross</a>
+
+                                                    <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+                                                </span>
+
+                                                <span class="description">Sent you a message - 3 days ago</span>
+
+                                            </div>
+
+                                            <!-- /.user-block -->
+
+                                            <p>
+
+                                                Lorem ipsum represents a long-held tradition for designers,
+
+                                                typographers and the like. Some people hate it and argue for
+
+                                                its demise, but others ignore the hate as they create awesome
+
+                                                tools to help create filler text for everyone from bacon lovers
+
+                                                to Charlie Sheen fans.
+
+                                            </p>
+
+                                            <form class="form-horizontal">
+
+                                                <div class="input-group input-group-sm mb-0">
+
+                                                    <input class="form-control form-control-sm" placeholder="Response">
+
+                                                    <div class="input-group-append">
+
+                                                        <button type="submit" class="btn btn-danger">Send</button>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                        <!-- /.post -->
+                                        <!-- Post -->
+
+                                        <div class="post">
+
+                                            <div class="user-block">
+
+                                                <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/user6-128x128.jpg" alt="User Image">
+
+                                                <span class="username">
+
+                                                    <a href="#">Adam Jones</a>
+
+                                                    <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+                                                </span>
+
+                                                <span class="description">Posted 5 photos - 5 days ago</span>
+
+                                            </div>
+
+                                            <!-- /.user-block -->
+
+                                            <div class="row mb-3">
+
+                                                <div class="col-sm-6">
+
+                                                    <img class="img-fluid" src="~/AdminLTE-3.0.4/dist/img/photo1.png" alt="Photo">
+
+                                                </div>
+
+                                                <!-- /.col -->
+
+                                                <div class="col-sm-6">
+
+                                                    <div class="row">
+
+                                                        <div class="col-sm-6">
+
+                                                            <img class="img-fluid mb-3" src="~/AdminLTE-3.0.4/dist/img/photo2.png" alt="Photo">
+
+                                                            <img class="img-fluid" src="~/AdminLTE-3.0.4/dist/img/photo3.jpg" alt="Photo">
+
+                                                        </div>
+
+                                                        <!-- /.col -->
+
+                                                        <div class="col-sm-6">
+
+                                                            <img class="img-fluid mb-3" src="~/AdminLTE-3.0.4/dist/img/photo4.jpg" alt="Photo">
+
+                                                            <img class="img-fluid" src="~/AdminLTE-3.0.4/dist/img/photo1.png" alt="Photo">
+
+                                                        </div>
+
+                                                        <!-- /.col -->
+
+                                                    </div>
+
+                                                    <!-- /.row -->
+
+                                                </div>
+
+                                                <!-- /.col -->
+
+                                            </div>
+
+                                            <!-- /.row -->
+
+                                            <p>
+
+                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+
+                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+
+                                                <span class="float-right">
+
+                                                    <a href="#" class="link-black text-sm">
+
+                                                        <i class="far fa-comments mr-1"></i> Comments (5)
+
+                                                    </a>
+
+                                                </span>
+
+                                            </p>
+
+                                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+
+                                        </div>
+
+                                        <!-- /.post -->
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="timeline">
+
+                                        <!-- The timeline -->
+
+                                        <div class="timeline timeline-inverse">
+
+                                            <!-- timeline time label -->
+
+                                            <div class="time-label">
+
+                                                <span class="bg-danger">
+
+                                                    10 Feb. 2014
+
+                                                </span>
+
+                                            </div>
+
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-envelope bg-primary"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+
+                                                        quora plaxo ideeli hulu weebly balihoo...
+
+                                                    </div>
+
+                                                    <div class="timeline-footer">
+
+                                                        <a href="#" class="btn btn-primary btn-sm">Read more</a>
+
+                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-user bg-info"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
+
+                                                    <h3 class="timeline-header border-0">
+
+                                                        <a href="#">Sarah Young</a> accepted your friend request
+
+                                                    </h3>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-comments bg-warning"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        Take me to your leader!
+
+                                                        Switzerland is small and neutral!
+
+                                                        We are more like Germany, ambitious and misunderstood!
+
+                                                    </div>
+
+                                                    <div class="timeline-footer">
+
+                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline time label -->
+
+                                            <div class="time-label">
+
+                                                <span class="bg-success">
+
+                                                    3 Jan. 2014
+
+                                                </span>
+
+                                            </div>
+
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-camera bg-purple"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+
+                                            <div>
+
+                                                <i class="far fa-clock bg-gray"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="settings">
+
+                                        @using (Html.BeginForm("UpdateCari", "CariPanel", FormMethod.Post))
+                                        {
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td>Mail Adresi: @HttpContext.Current.User.Identity.Name</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>@Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control" })</td>
+                                                </tr>
+                                            </table>
+                                            <button class="btn btn-warning">Bilgilerimi Güncelle</button>
+                                        }
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                </div>
+
+                                <!-- /.tab-content -->
+
+                            </div><!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="/Content/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="/Content/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="/Content/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="/Content/AdminLTE-3.0.4/dist/js/demo.js"></script>
+
+</body>
+
+</html>
