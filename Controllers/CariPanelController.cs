@@ -18,6 +18,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var degerler = db.Caris.FirstOrDefault(x => x.CariMail == mail);
             ViewBag.m = mail;
 
+            var mesajlar = db.Mesajlars.ToList();
+
             var mailid = db.Caris.Where(x => x.CariMail == mail).Select(y => y.CariId).FirstOrDefault();
             ViewBag.mailid = mailid;
 
@@ -33,7 +35,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var toplamurun = db.SatisHarekets.Where(x => x.CariId == mailid).Select(y => (int?)y.Adet).Sum() ?? 0;
             ViewBag.toplamurun = toplamurun;
 
-            return View(degerler);
+            return View(mesajlar);
         }
 
         [HttpPost]
@@ -149,6 +151,14 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+        public PartialViewResult ProfilBilgi()
+        {
+            var mail = (string)Session["CariMail"];
+            var id = db.Caris.Where(x=>x.CariMail==mail).Select(y=>y.CariId).FirstOrDefault();
+            var caribul = db.Caris.Find(id);
+            return PartialView("ProfilBilgi", caribul);
         }
     }
 }
